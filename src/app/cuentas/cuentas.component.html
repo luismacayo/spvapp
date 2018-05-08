@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<!-- <link rel="stylesheet" type="text/css" href="/../../node_modules/bootstrap/dist/css/bootstrap.css"> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<body>
+<div class="container">
+	<div *ngIf ="mostrar_cuentas == false">
+		<button class="btn btn-primary btn-block" (click)="seMuestranLasCuentas(true)">Cuentas</button>
+	</div>
+	<div *ngIf ="mostrar_cuentas == true">
+		<button class="btn btn-primary btn-block" (click)="seMuestranLasCuentas(false)">Cuentas</button>
+		<p>La cotizacion es</p>
+	</div>
+</div>
+
+</body>
+</html>

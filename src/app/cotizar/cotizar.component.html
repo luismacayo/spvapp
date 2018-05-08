@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<!-- <link rel="stylesheet" type="text/css" href="/../../node_modules/bootstrap/dist/css/bootstrap.css"> -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<body>
+<div class="container">
+	<div *ngIf ="mostrar_cotizacion == false">
+		<button class="btn btn-primary btn-block" (click)="seMuestraLaCotizacion(true)">Cotizar</button>
+	</div>
+	<div *ngIf ="mostrar_cotizacion == true">
+		<button class="btn btn-primary btn-block" (click)="seMuestraLaCotizacion(false)">Cotizar</button>
+		<p>La cotizacion es</p>
+	</div>
+</div>
+
+</body>
+</html>
