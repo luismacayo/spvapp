@@ -1,0 +1,7 @@
+{
+  "/json/*": {
+    "target": "https://gsmproxy.com",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

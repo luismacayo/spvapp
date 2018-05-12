@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {HttpClientModule} from '@angular/common/http';//para poder hacer peticiones http es necesario hacer estos imports
+import {HttpModule} from '@angular/http';
+
 
 import { AppComponent } from './app.component';
 import { TasaComponent } from './tasa/tasa.component';
@@ -18,7 +21,9 @@ import { ContactoComponent } from './contacto/contacto.component';
     ContactoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

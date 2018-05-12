@@ -12,7 +12,11 @@
 	</div>
 	<div *ngIf ="mostrar_tasa == true">
 		<button class="btn btn-primary btn-block" (click)="seMuestraLaTasa(false)">Tasa</button>
-		<p>La tasa del dia es algunos soles</p>
+	<ul>
+		<li class="text-center" *ngFor="let articulo of articulos">
+			<h2> {{articulo.rate}} {{articulo.currency}} {{articulo.time}}</h2>
+		</li>
+	</ul>
 	</div>
 </div>
 
