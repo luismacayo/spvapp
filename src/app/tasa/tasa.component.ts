@@ -11,7 +11,7 @@ export class TasaComponent implements OnInit {
 
 
 	public mostrar_tasa:boolean;
-  public articulos;
+  public datos;
 
   constructor(
     private _peticionesservice: PeticionesService
@@ -24,8 +24,8 @@ export class TasaComponent implements OnInit {
     this._peticionesservice.getArticulos().subscribe(//se inicia la peticion al llamar al metodo subscribe()
           //recibe la respuesta
       result => {
-        this.articulos = result;
-        if(!this.articulos){
+        this.datos = result;
+        if(!this.datos){
           console.log('Error en el servidor');
         }
         console.log(result);

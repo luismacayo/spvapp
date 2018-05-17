@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <!-- <link rel="stylesheet" type="text/css" href="/../../node_modules/bootstrap/dist/css/bootstrap.css"> -->
@@ -13,10 +14,13 @@
 	<div *ngIf ="mostrar_tasa == true">
 		<button class="btn btn-primary btn-block" (click)="seMuestraLaTasa(false)">Tasa</button>
 	<ul>
-		<li class="text-center" *ngFor="let articulo of articulos">
-			<h2> {{articulo.rate}} {{articulo.currency}} {{articulo.time}}</h2>
+		<li class="text-center" *ngFor="let dato of datos">
+			<h2> {{dato.rate}} {{dato.currency}} {{dato.time}}</h2>
 		</li>
 	</ul>
+		<div id="centrar-spinner">
+			<span *ngIf="!datos"><i class="fa fa-refresh fa-spin" style="font-size:24px"></i></span>
+		</div>
 	</div>
 </div>
 

@@ -12,7 +12,10 @@
 	</div>
 	<div *ngIf ="mostrar_cotizacion == true">
 		<button class="btn btn-primary btn-block" (click)="seMuestraLaCotizacion(false)">Cotizar</button>
-		<p>La cotizacion es</p>
+		<div id="center" *ngFor="let dato of datos">
+			S/Bs: <input type="text" [(ngModel)]="num_input">
+			<p *ngIf="num_input">Monto en Bolivares: {{ num_input | conversor: dato.rate}}</p>
+		</div>
 	</div>
 </div>
 
