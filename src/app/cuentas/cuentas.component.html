@@ -12,7 +12,11 @@
 	</div>
 	<div *ngIf ="mostrar_cuentas == true">
 		<button class="btn btn-primary btn-block" (click)="seMuestranLasCuentas(false)">Cuentas</button>
-		<p>La cotizacion es</p>
+		<ul>
+			<li *ngFor="let cuentas of datos.cuentas">
+				{{cuentas.nombre}}
+			</li>
+		</ul>
 	</div>
 </div>
 

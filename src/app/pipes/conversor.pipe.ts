@@ -11,4 +11,3 @@ export class ConversorPipe implements PipeTransform{
 		return result;
 	}
 }
-//despues de crear un pipe tenemos que importarlo en el app.module.ts

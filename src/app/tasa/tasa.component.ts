@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeticionesService } from '../peticiones.service'
+import { PeticionesService } from '../peticiones.service';
 
 @Component({
   selector: 'app-tasa',
@@ -7,22 +7,28 @@ import { PeticionesService } from '../peticiones.service'
   styleUrls: ['./tasa.component.css'],
   providers: [PeticionesService]
 })
+
+
 export class TasaComponent implements OnInit {
 
 
-	public mostrar_tasa:boolean;
   public datos;
+  public mostrar_tasa:boolean;
+  public mostrar_cuentas:boolean;
+  public faq_view:boolean;
+  public contact_view:boolean;
+  public calc_view:boolean;
 
-  constructor(
-    private _peticionesservice: PeticionesService
-  ) {
-  	this.mostrar_tasa = false;
+  constructor(private _peticionesservice: PeticionesService) {
+    this.mostrar_tasa = false;
+    this.mostrar_cuentas = false;
+    this.faq_view = false;
+    this.contact_view = false;
+    this.calc_view = false;
   }
 
   ngOnInit() {
-    //console.log(this._peticionesservice.getPrueba());
-    this._peticionesservice.getArticulos().subscribe(//se inicia la peticion al llamar al metodo subscribe()
-          //recibe la respuesta
+    this._peticionesservice.getArticulos().subscribe(
       result => {
         this.datos = result;
         if(!this.datos){
@@ -30,7 +36,6 @@ export class TasaComponent implements OnInit {
         }
         console.log(result);
       },
-          //recibe el error
       error => {
         var errorMessage = <any>error;
         console.log(errorMessage);
@@ -40,6 +45,22 @@ export class TasaComponent implements OnInit {
 
   seMuestraLaTasa(eleccion){
   	this.mostrar_tasa = eleccion;
+  }
+
+  toggleCuentas(eleccion){
+    this.mostrar_cuentas = eleccion;
+  }
+
+  toggleFaq(eleccion){
+    this.faq_view = eleccion;
+  }
+
+  toggleContact(eleccion){
+    this.contact_view = eleccion;
+  }
+
+  toggleCalc(eleccion){
+    this.calc_view = eleccion;
   }
 
 }

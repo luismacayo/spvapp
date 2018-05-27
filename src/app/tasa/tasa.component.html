@@ -4,25 +4,78 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<!-- <link rel="stylesheet" type="text/css" href="/../../node_modules/bootstrap/dist/css/bootstrap.css"> -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
 <body>
 <div class="container">
-	<div *ngIf ="mostrar_tasa == false">
-		<button class="btn btn-primary btn-block" (click)="seMuestraLaTasa(true)">Tasa</button>
+	<div class="row">
+		<div class="col-md-12">
+			<div id="centrar-spinner">
+				<span *ngIf="!datos"><i class="fa fa-refresh fa-spin" style="font-size:24px"></i></span>
+				<h1 *ngIf="datos">{{datos.rate}} Bs</h1>
+				
+			</div>
+		</div>
 	</div>
-	<div *ngIf ="mostrar_tasa == true">
-		<button class="btn btn-primary btn-block" (click)="seMuestraLaTasa(false)">Tasa</button>
-	<ul>
-		<li class="text-center" *ngFor="let dato of datos">
-			<h2> {{dato.rate}} {{dato.currency}} {{dato.time}}</h2>
-		</li>
-	</ul>
-		<div id="centrar-spinner">
-			<span *ngIf="!datos"><i class="fa fa-refresh fa-spin" style="font-size:24px"></i></span>
+	<div class="row">
+		<!-- Calculadora -->
+		<div class="col-xs-12 col-sm-12 col-md-3">
+			<div *ngIf ="calc_view == false">
+				<button class="btn btn-primary btn-block btn-lg" (click)="toggleCalc(true)"><i class="fas fa-calculator"></i> Calculadora</button>
+			</div>
+			<div *ngIf ="calc_view == true">
+				<button class="btn btn-primary btn-block btn-lg" (click)="toggleCalc(false)"><i class="fas fa-calculator"></i> Calculadora</button>
+				<ul>
+					
+				</ul>
+			</div>
+		</div>
+		<!-- Cuentas -->
+		<div class="col-xs-12 col-sm-12 col-md-3">
+			<div *ngIf ="mostrar_cuentas == false">
+				<button class="btn btn-primary btn-block btn-lg" (click)="toggleCuentas(true)"><i class="fas fa-clipboard-list"></i> Cuentas</button>
+			</div>
+			<div *ngIf ="mostrar_cuentas == true">
+				<button class="btn btn-primary btn-block btn-lg" (click)="toggleCuentas(false)"><i class="fas fa-clipboard-list"></i> Cuentas</button>
+				<ul>
+					<li *ngFor="let banco of datos.bancos">
+						<h1>{{banco.nombre}}</h1>
+						<h1>{{banco.tipo}}</h1>
+						<h1>{{banco.moneda}}</h1>
+						<h1>{{banco.numero}}</h1>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- FAQ -->
+		<div class="col-xs-12 col-sm-12 col-md-3">
+			<div *ngIf ="faq_view == false">
+				<button class="btn btn-primary btn-block btn-lg" (click)="toggleFaq(true)"><i class="fas fa-question-circle"></i> Preguntas Frecuentes</button>
+			</div>
+			<div *ngIf ="faq_view == true">
+				<button class="btn btn-primary btn-block btn-lg" (click)="toggleFaq(false)"><i class="fas fa-question-circle"></i> Preguntas Frecuentes</button>
+				<ul>
+					<li *ngFor="let dato of datos.faq">
+						<h1>{{dato.question}}</h1>
+						<h1>{{dato.answer}}</h1>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Contacto -->
+		<div class="col-xs-12 col-sm-12 col-md-3">
+			<div *ngIf ="contact_view == false">
+				<button class="btn btn-primary btn-block btn-lg" (click)="toggleContact(true)"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+			</div>
+			<div *ngIf ="contact_view == true">
+				<button class="btn btn-primary btn-block btn-lg" (click)="toggleContact(false)"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+				<ul>
+					<li>
+						<span><a href="https://api.whatsapp.com/send?phone=61916681262&text=Me%20gustaría%20saber%20el%20precio%20del%20coche">Whatsapp</a></span>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
-
 </body>
 </html>
